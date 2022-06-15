@@ -1,4 +1,4 @@
-// Fahrenheit to Celsius 
+// Fahrenheit to Celsius
 let convert = document.getElementById('convert');
 
 convert.addEventListener('click',() => {
@@ -23,8 +23,17 @@ convert1.addEventListener('click',() => {
     let c = celsius ;
 
     let converter1 = eval((c.value * 1.8) + 32);
-    
+
     let answer1 = converter1.toFixed(4);
 
     document.getElementById('fahrenheit1').innerHTML = answer1
+})
+
+let reset = document.getElementById('reset');
+
+reset.addEventListener('click', () => {
+    let reset = ((answer = 0),(answer1 =0));
+
+    document.getElementById('fahrenheit1').innerHTML = reset;
+    document.getElementById('celsius').innerHTML = reset;
 })
