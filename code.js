@@ -1,39 +1,20 @@
-// Fahrenheit to Celsius
-let convert = document.getElementById('convert');
+let cel = document.getElementById("cel");
+let fah = document.getElementById("fah");
 
-convert.addEventListener('click',() => {
-    let fahrenheit = document.querySelector('#fahrenheit');
-    let f = fahrenheit;
-
-    let converter = eval((f.value - 32) / 1.8);
-    // .value to target input value
-
-    // toFixed(x) is to round off decimals
-    let answer = converter.toFixed(4);
-    // console.log(answer)
-
-    document.getElementById('celsius').innerHTML = answer
+cel.addEventListener('input', function() {
+    let c = this.value;
+    let f = (c * 9 / 5) + 32;
+    if (!Number.isInteger(f)) {
+        f = f.toFixed(4);
+    }
+    fah.value = f;
 })
 
-// Celsius to Fahrenheit
-let convert1 = document.getElementById('convert1');
-
-convert1.addEventListener('click',() => {
-    let celsius  = document.querySelector('#celsius1');
-    let c = celsius ;
-
-    let converter1 = eval((c.value * 1.8) + 32);
-
-    let answer1 = converter1.toFixed(4);
-
-    document.getElementById('fahrenheit1').innerHTML = answer1
-})
-
-let reset = document.getElementById('reset');
-
-reset.addEventListener('click', () => {
-    let reset = ((answer = 0),(answer1 =0));
-
-    document.getElementById('fahrenheit1').innerHTML = reset;
-    document.getElementById('celsius').innerHTML = reset;
+fah.addEventListener('input', function() {
+    let f = this.value;
+    let c = (f - 32) * 5 / 9;
+    if (!Number.isInteger(c)) {
+        c = c.toFixed(4);
+    }
+    cel.value = c;
 })
